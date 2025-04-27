@@ -1,4 +1,7 @@
 #include "Product/Product.h"
+#include "Product/Laptop.h"
+#include "Product/Accessory.h"
+#include "Inventory.h"
 #include <string>
 
 void inputChoice(const int &);
@@ -8,9 +11,9 @@ void exitProgram();
 
 int main() {
     while(true) {
-        cout << " ---------------------------------------------------------\n";
-        cout << "| Welcome to the 'Laptop & Accessories Retailer' Program. |\n";
-        cout << " ------------------------< Menu >-------------------------\n";
+        cout << " -----------------------------------------------------------\n";
+        cout << " - Welcome to the 'Laptop & Accessories Retailer' Program. -\n";
+        cout << " ------------------------< Menu >---------------------------\n";
         cout << " 1. Login as Admin.\n";
         cout << " 2. Login as Customer.\n";
         cout << " 3. Exit Program.\n";
@@ -44,7 +47,7 @@ void inputChoice(const int &choice) {
             exitProgram();
             break;
         default:
-            cout << "Invalid choice. Please try again.\n";
+            cout << "Invalid choice. Please enter a number from 1 to 3.\n";
     }
 }
 
