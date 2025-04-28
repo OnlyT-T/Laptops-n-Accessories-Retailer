@@ -4,22 +4,26 @@
 #include "Inventory.h"
 #include <string>
 
-void inputChoice(const int &);
-void checkInventory();
+void checkInventory(Inventory);
 void searchProduct();
 void addProduct();
 void removeProduct();
 void logOutAdmin();
 
 int main() {
+    // Create new Inventory
+    Inventory inventory;
+
+    // Starting the loop of Admin Panel
     while(true) {
+        // Screen 1 - Admin Menu
         cout << "------------------------< Admin >--------------------------\n";
         cout << " 1. Check Inventory\n";
         cout << " 2. Search Product (using product's ID)\n";
         cout << " 3. Add a new product\n";
         cout << " 4. Remove an existing product\n";
         cout << " 5. Log out\n";
-        cout << " *  Enter your choice: ";
+        cout << "  * Enter your choice: ";
 
         // Handling invalid input
         string input; // Define the variable named 'input' as string
@@ -32,37 +36,38 @@ int main() {
         }
         cout << endl;
         int choice = input[0] - '0';
-        inputChoice(choice);
+        switch (choice) {
+            case 1:
+                // Screen 2.1
+                checkInventory(inventory);
+                break;
+            case 2:
+                // Screen 2.2
+                searchProduct();
+                break;
+            case 3:
+                // Screen 2.3
+                addProduct();
+                break;
+            case 4:
+                // Screen 2.4
+                removeProduct();
+                break;
+            case 5:
+                // Screen 0 - Main Menu (of the program)
+                logOutAdmin();
+                break;
+            default:
+                cout << "Invalid choice. Please enter a number from 1 to 5.\n";
+        }
     }
-
+    cout << "Say Bye\n";
     return 0;
 }
 
-void inputChoice(const int &choice) {
-    switch (choice) {
-        case 1: 
-            checkInventory();
-            break;
-        case 2:
-            searchProduct();
-            break;
-        case 3:
-            addProduct();
-            break;
-        case 4:
-            removeProduct();
-            break;
-        case 5:
-            logOutAdmin();
-            break;
-        default:
-            cout << "Invalid choice. Please enter a number from 1 to 5.\n";
-    }
-}
-
-void checkInventory() {
+void checkInventory(Inventory inv) {
     cout << "-----------------------------------------------------------\n";
-    cout << "Checking the Inventory...\n";
+    cout << "List of products:\n"; inv.listProduct();
     cout << endl;
 }
 void searchProduct() {

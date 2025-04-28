@@ -30,7 +30,7 @@ bool Inventory::removeProduct(int id) {
 }
 void Inventory::listProduct() {
     for (auto p = products.begin(); p != products.end(); p++) {
-        cout << *p << endl;
+        (*p)->listDisplay();
     }
 }
 void Inventory::search(int id) {

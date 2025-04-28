@@ -21,10 +21,13 @@ void Product::showInfo(bool) {
     cout << "Brand: " << brand << endl;
     cout << "Price: " << price << endl;
 }
-// cout built function (for listing products inside Inventory)
-ostream &operator << (ostream &strm, const Product &obj) {
-    strm << obj.getID() << ". " << obj.getName() << ", " << obj.getBrand() << " | $" << obj.getPrice() << endl;
+void Product::listDisplay() {
+    cout << id << ". " << name << ", " << brand << " | $" << price << endl;
 }
+// cout built function (for listing products inside Inventory)
+// ostream &operator << (ostream &strm, const Product &obj) {
+//     strm << obj.getID() << ". " << obj.getName() << ", " << obj.getBrand() << " | $" << obj.getPrice() << endl;
+// }
 // cin built function
 // istream &operator >> (ostream &strm, const Product &obj) {
 

@@ -4,7 +4,7 @@
 using namespace std;
 
 class Product;
-ostream &operator << (ostream &, Product &);
+//ostream &operator << (ostream &, Product &);
 //istream &operator >> (istream &, Product &);
 
 class Product {
@@ -26,7 +26,8 @@ class Product {
         string getBrand() const { return brand; }
         float getPrice() const { return price; }
         virtual void showInfo(bool);
-        friend ostream &operator << (ostream &, Product &);
+        void listDisplay();
+        //friend ostream &operator << (ostream &strm, Product &p);
         //friend istream &operator >> (ostream &, Product &);
 };
 
