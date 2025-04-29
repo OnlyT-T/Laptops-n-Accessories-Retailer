@@ -4,15 +4,15 @@
 #include "Inventory.h"
 #include <string>
 
-void checkInventory(Inventory);
-void searchProduct();
+void checkInventory(Inventory*);
+void searchProduct(Inventory*);
 void addProduct();
 void removeProduct();
 void logOutAdmin();
 
 int main() {
     // Create new Inventory
-    Inventory inventory;
+    Inventory* inventory = new Inventory;
 
     // Starting the loop of Admin Panel
     while(true) {
@@ -34,7 +34,7 @@ int main() {
             cout << "Invalid choice. Please enter a number from 1 to 5.\n\n";
             continue;
         }
-        cout << endl;
+        cout << "\n-----------------------------------------------------------\n";
         int choice = input[0] - '0';
         switch (choice) {
             case 1:
@@ -43,7 +43,7 @@ int main() {
                 break;
             case 2:
                 // Screen 2.2
-                searchProduct();
+                searchProduct(inventory);
                 break;
             case 3:
                 // Screen 2.3
@@ -61,18 +61,21 @@ int main() {
                 cout << "Invalid choice. Please enter a number from 1 to 5.\n";
         }
     }
-    cout << "Say Bye\n";
+
+    delete inventory;
     return 0;
 }
 
-void checkInventory(Inventory inv) {
-    cout << "-----------------------------------------------------------\n";
-    cout << "List of products:\n"; inv.listProduct();
+void checkInventory(Inventory* inv) {
+    cout << "List of products:\n"; inv->listProduct();
     cout << endl;
 }
-void searchProduct() {
-    cout << "-----------------------------------------------------------\n";
-    cout << "Searching for a product in the Inventory...\n";
+void searchProduct(Inventory* inv) {
+    int input;
+    cout << "Enter the product's ID: ";
+    cin >> input;
+    cin.ignore();
+    inv->search(input);
     cout << endl;
 }
 void addProduct() {
@@ -86,7 +89,6 @@ void removeProduct() {
     cout << endl;
 }
 void logOutAdmin() {
-    cout << "-----------------------------------------------------------\n";
     cout << "Logged Out Successfully!\n";
     exit(0);
 }

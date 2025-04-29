@@ -34,12 +34,13 @@ void Inventory::listProduct() {
     }
 }
 void Inventory::search(int id) {
+    bool found = false;
     for (auto p = products.begin(); p != products.end(); ++p) {
         if ((*p)->getID() == id) {
-            cout << "Here's the product you're looking for:" << endl;
+            cout << "--> Here's the product you're looking for:" << endl;
             (*p)->showInfo(true);
-        } else {
-            cout << "Unable to find the product you're looking for. Please try again." << endl;
+            found = true;
         }
     }
+    if (!found) cout << "--> Unable to find the product you're looking for. Please try again." << endl;
 }

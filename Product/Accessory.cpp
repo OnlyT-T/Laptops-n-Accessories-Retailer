@@ -16,5 +16,6 @@ void Accessory::showInfo(bool showDetail = false) {
         cout << "Wireless: ";
         if (wireless) cout << "Yes";
         else cout << "No";
+        cout << endl;
     }
 }
