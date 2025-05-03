@@ -1,8 +1,8 @@
 #include "Inventory.h"
 
 Inventory::Inventory() {
-    Product* laptop0 = new Laptop(1000, "None", "None", 0.0, "None", 0, 0, "None");
-    Product* accessory0 = new Accessory(1100, "None", "None", 0.0, "None", false);
+    Product* laptop0 = new Laptop("None", "None", 0.0, "None", 0, 0, "None");
+    Product* accessory0 = new Accessory("None", "None", 0.0, "None", false);
     this->products.push_back(laptop0);
     this->products.push_back(accessory0);
 }
