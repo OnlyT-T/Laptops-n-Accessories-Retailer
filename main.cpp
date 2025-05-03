@@ -1,0 +1,59 @@
+#include "Inventory.h"
+#include "Admin.h"
+
+void inputChoice(const int &, Inventory*);
+void customerLogin();
+void exitProgram();
+
+int main() {
+    Inventory* inventory = new Inventory();
+    while(true) {
+        cout << " ----------------------------------------------------------\n";
+        cout << "| Welcome to the 'Laptops & Accessories Retailer' Program. |\n";
+        cout << " -------------------------< Menu >-------------------------\n";
+        cout << " 1. Login as Admin.\n";
+        cout << " 2. Login as Customer.\n";
+        cout << " 3. Exit Program.\n";
+        cout << " *  Enter your choice: ";
+
+        // Handling invalid input
+        string input; // Define the variable named 'input' as string
+        getline(cin, input); // Read the entire input as a string
+
+        // Validate input to ensure it's a single character
+        if (input.length() != 1) {
+            cout << "Invalid choice. Please enter a number from 1 to 3.\n";
+            continue;
+        }
+        int choice = input[0] - '0';
+        cout << "\n-----------------------------------------------------------\n";
+        inputChoice(choice, inventory);
+    }
+
+    delete inventory;
+    return 0;
+}
+
+void inputChoice(const int &choice, Inventory* inv) {
+    switch (choice) {
+        case 1: 
+            adminPanel(inv);
+            break;
+        case 2:
+            customerLogin();
+            break;
+        case 3:
+            exitProgram();
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+    }
+}
+
+void customerLogin() {
+    cout << "Customer login functionality goes here.\n";
+}
+void exitProgram() {
+    cout << "Exiting the program. Goodbye!\n";
+    exit(0);
+}
