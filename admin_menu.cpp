@@ -7,7 +7,7 @@
 void checkInventory(Inventory*);
 void searchProduct(Inventory*);
 void addProduct(Inventory*);
-void removeProduct();
+void removeProduct(Inventory*);
 void logOutAdmin();
 
 int main() {
@@ -51,7 +51,7 @@ int main() {
                 break;
             case 4:
                 // Screen 2.4
-                removeProduct();
+                removeProduct(inventory);
                 break;
             case 5:
                 // Screen 0 - Main Menu (of the program)
@@ -82,7 +82,7 @@ void searchProduct(Inventory* inv) {
 }
 void addProduct(Inventory* inv) {
     while (true) {
-        cout << "----------------------< New Product >----------------------\n";
+        cout << "--------------------------< Add >--------------------------\n";
         cout << "Adding new product to the Inventory.\n";
         cout << " 1. Laptop\n";
         cout << " 2. Accessory\n";
@@ -141,7 +141,7 @@ void addProduct(Inventory* inv) {
             // Input Name
             cout << "Name: "; getline(cin, name);
             // Input Brand
-            cout << "Brand: "; cin.ignore(); getline(cin, brand);
+            cout << "Brand: "; getline(cin, brand);
             // Input Price
             do {
                 cout << "Price: $"; cin >> price;
@@ -170,9 +170,17 @@ void addProduct(Inventory* inv) {
     }
     cout << endl;
 }
-void removeProduct() {
-    cout << "-----------------------------------------------------------\n";
-    cout << "Removing an existing product from the Inventory...\n";
+void removeProduct(Inventory* inv) {
+    cout << "-------------------------< Remove >------------------------\n";
+    int input;
+    cout << " * Enter the product's ID: ";
+    cin >> input;
+    cin.ignore();
+    if (inv->removeProduct(input)) {
+        cout << "--> Removed the product with ID " << input << " successfully!" << endl;
+    } else {
+        cout << "--> None product with given ID " << input << " is detected. Please try again." << endl;
+    }
     cout << endl;
 }
 void logOutAdmin() {
