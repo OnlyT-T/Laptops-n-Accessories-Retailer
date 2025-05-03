@@ -1,20 +1,20 @@
-#include "Product/Product.h"
-#include <string>
+#include "Inventory.h"
+#include "Admin.h"
 
-void inputChoice(const int &);
-void adminLogin();
+void inputChoice(const int &, Inventory*);
 void customerLogin();
 void exitProgram();
 
 int main() {
+    Inventory* inventory = new Inventory();
     while(true) {
-        cout << " ---------------------------------------------------------\n";
-        cout << "| Welcome to the 'Laptop & Accessories Retailer' Program. |\n";
-        cout << " ------------------------< Menu >-------------------------\n";
+        cout << " ----------------------------------------------------------\n";
+        cout << "| Welcome to the 'Laptops & Accessories Retailer' Program. |\n";
+        cout << " -------------------------< Menu >-------------------------\n";
         cout << " 1. Login as Admin.\n";
         cout << " 2. Login as Customer.\n";
         cout << " 3. Exit Program.\n";
-        cout << " * Enter your choice: ";
+        cout << " *  Enter your choice: ";
 
         // Handling invalid input
         string input; // Define the variable named 'input' as string
@@ -26,16 +26,18 @@ int main() {
             continue;
         }
         int choice = input[0] - '0';
-        inputChoice(choice);
+        cout << "\n-----------------------------------------------------------\n";
+        inputChoice(choice, inventory);
     }
 
+    delete inventory;
     return 0;
 }
 
-void inputChoice(const int &choice) {
+void inputChoice(const int &choice, Inventory* inv) {
     switch (choice) {
         case 1: 
-            adminLogin();
+            adminPanel(inv);
             break;
         case 2:
             customerLogin();
@@ -48,16 +50,10 @@ void inputChoice(const int &choice) {
     }
 }
 
-void adminLogin() {
-    cout << "-------------------------------------------------------\n";
-    cout << "Admin login functionality goes here.\n";
-}
 void customerLogin() {
-    cout << "-------------------------------------------------------\n";
     cout << "Customer login functionality goes here.\n";
 }
 void exitProgram() {
-    cout << "-------------------------------------------------------\n";
     cout << "Exiting the program. Goodbye!\n";
     exit(0);
 }
