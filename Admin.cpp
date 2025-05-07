@@ -6,9 +6,8 @@
 
 using namespace std;
 
-void adminPanel(Inventory* inventory) {
-    bool logOut = false;
-    while(!logOut) {
+void Admin::adminPanel(Inventory* inventory) {
+    while(true) {
         cout << "-------------------------< Admin >-------------------------\n";
         cout << " 1. Check Inventory\n";
         cout << " 2. Search Product (using product's ID)\n";
@@ -28,33 +27,41 @@ void adminPanel(Inventory* inventory) {
         int choice = input[0] - '0';
         switch (choice) {
             case 1: checkInventory(inventory); break;
-            case 2: searchProduct(inventory); break;
+            // case 2: searchProduct(inventory); break;
             case 3: addProduct(inventory); break;
             case 4: removeProduct(inventory); break;
-            case 5: cout << "Logged Out Successfully!\n\n"; logOut = true; break;
+            case 5:  cout << "Logged Out Successfully!\n";
+                        return;
             default: cout << "Invalid choice. Please try again.\n";
         }
     }
 }
 
-void checkInventory(Inventory* inv) {
+void Admin::checkInventory(Inventory* inv) {
     cout << "-----------------------< Inventory >-----------------------\n";
     cout << "List of products:\n";
     inv->listProduct();
     cout << endl;
 }
 
-void searchProduct(Inventory* inv) {
+void Admin::searchProduct(Inventory* inv) {
     cout << "-------------------------< Search >------------------------\n";
-    int input;
+    int id;
     cout << " *  Enter the product's ID: ";
-    cin >> input;
+    cin >> id;
     cin.ignore();
-    inv->search(input);
+    Product* p= inv->getProductById(id);
+    if(p!=nullptr){
+        cout << "--> Here's the product you're looking for:" << endl;
+        p->showInfo();
+    }
+    else{
+        cout<<"--> Cannot found product!\n";
+    }
     cout << endl;
 }
 
-void addProduct(Inventory* inv) {
+void Admin::addProduct(Inventory* inv) {
     while (true) {
         cout << "--------------------------< Add >--------------------------\n";
         cout << "Adding new product to the Inventory.\n";
@@ -131,7 +138,7 @@ void addProduct(Inventory* inv) {
     }
 }
 
-void removeProduct(Inventory* inv) {
+void Admin::removeProduct(Inventory* inv) {
     cout << "-------------------------< Remove >------------------------\n";
     int input;
     cout << " * Enter the product's ID: ";
@@ -142,4 +149,9 @@ void removeProduct(Inventory* inv) {
     } else {
         cout << "-> No product with ID " << input << " found.\n";
     }
+}
+
+void Admin::logOutAdmin() {
+    cout << "Logged Out Successfully!\n";
+    return;
 }

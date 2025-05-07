@@ -15,16 +15,17 @@ Accessory::Accessory(string name, string brand, float price, string type, bool w
     this->wireless = wireless;
     accessoryCount++;
 }
-void Accessory::showInfo(bool showDetail = false) {
-    Product::showInfo(showDetail);
-    if (showDetail) {
-        //cout << "---< Accessory Information >---" << endl;
+void Accessory::showInfo() {
+        cout << "---< Accessory Information >---" << endl;
+        cout << "ID: " << id << endl;
+        cout << "Name: " << name << endl;
+        cout << "Brand: " << brand << endl;
+        cout << "Price: $" << price << endl;
         cout << "Type: " << type << endl;
         cout << "Wireless: ";
         if (wireless) cout << "Yes";
         else cout << "No";
-        cout << endl;
-    }
+        cout << endl; 
 }
 // ostream &operator << (ostream &strm, Accessory &obj) {
 //     strm << obj.getID() << ". " << obj.getName() << ", " << obj.getBrand() << " | $" << obj.getPrice() << endl;
@@ -66,4 +67,4 @@ void Accessory::showInfo(bool showDetail = false) {
 //     obj.setWireless(wireless);
 
 //     return strm;
-// }
+// }x

@@ -16,6 +16,7 @@ class Inventory {
         bool removeProduct(int);
         void listProduct();
         void search(int);
+        Product* getProductById(int);
 };
 
 #endif

@@ -17,12 +17,6 @@ Product::Product(string name, string brand, float price) {
     this->price = price;
     productCount++;
 }
-void Product::showInfo(bool) {
-    cout << "ID: " << id << endl;
-    cout << "Name: " << name << endl;
-    cout << "Brand: " << brand << endl;
-    cout << "Price: $" << price << endl;
-}
 void Product::listDisplay() {
     cout << id << ". " << name << ", " << brand << " | $" << price << endl;
 }

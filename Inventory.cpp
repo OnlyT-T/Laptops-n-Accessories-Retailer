@@ -1,10 +1,10 @@
 #include "Inventory.h"
 
 Inventory::Inventory() {
-    Product* laptop0 = new Laptop("None", "None", 0.0, "None", 0, 0, "None");
-    Product* accessory0 = new Accessory("None", "None", 0.0, "None", false);
-    this->products.push_back(laptop0);
-    this->products.push_back(accessory0);
+    // Product* laptop0 = new Laptop("None", "None", 0.0, "None", 0, 0, "None");
+    // Product* accessory0 = new Accessory("None", "None", 0.0, "None", false);
+    // this->products.push_back(laptop0);
+    // this->products.push_back(accessory0);
 }
 Inventory::Inventory(vector<Product*> products) {
     this->products = products;
@@ -23,7 +23,7 @@ void Inventory::addProduct(Product* p) {
 bool Inventory::removeProduct(int id) {
     bool removed = false;
     for (auto p = products.begin(); p != products.end(); ++p) { // auto here is actually vector<Product*>::iterator
-        if ((*p)->getID() == id) {
+        if ((*p)->getId() == id) {
             delete (*p);
             products.erase(p);
             removed = true;
@@ -37,18 +37,29 @@ bool Inventory::removeProduct(int id) {
     return removed;
 }
 void Inventory::listProduct() {
+    if(products.size()==0){
+        cout<<"There is no available product!\n";
+    }
     for (auto p = products.begin(); p != products.end(); p++) {
         (*p)->listDisplay();
     }
 }
-void Inventory::search(int id) {
-    bool found = false;
-    for (auto p = products.begin(); p != products.end(); ++p) {
-        if ((*p)->getID() == id) {
-            cout << "--> Here's the product you're looking for:" << endl;
-            (*p)->showInfo(true);
-            found = true;
-        }
+Product* Inventory::getProductById(int id) {
+    for (auto p : products) {
+        if (p->getId() == id)
+            return p;
     }
-    if (!found) cout << "--> Unable to find the product you're looking for. Please try again." << endl;
+    return nullptr;
 }
+///hiii
+// void Inventory::search(int id) {
+//     bool found = false;
+//     for (auto p = products.begin(); p != products.end(); ++p) {
+//         if ((*p)->getId() == id) {
+//             cout << "--> Here's the product you're looking for:" << endl;
+//             (*p)->showInfo(true);
+//             found = true;
+//         }
+//     }
+//     if (!found) cout << "--> Unable to find the product you're looking for. Please try again." << endl;
+// }

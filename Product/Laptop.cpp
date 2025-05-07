@@ -19,15 +19,17 @@ Laptop::Laptop(string name, string brand, float price, string cpu, int ram, int 
     this->gpu = gpu;
     laptopCount++;
 }
-void Laptop::showInfo(bool showDetail = false) {
-    Product::showInfo(showDetail);
-    if (showDetail) {
-        //cout << "---< Laptop Information >---" << endl;
+void Laptop::showInfo() {
+        cout << "---< Laptop Information >---" << endl;
+        cout << "ID: " << id << endl;
+        cout << "Name: " << name << endl;
+        cout << "Brand: " << brand << endl;
+        cout << "Price: $" << price << endl;
         cout << "CPU: " << cpu << endl;
         cout << "RAM: " << ram << "GB" << endl;
         cout << "Storage: " << storage << "GB" << endl;
         cout << "GPU: " << gpu << endl;
-    }
+    
 }
 // ostream &operator << (ostream &strm, const Laptop &obj) {
 //     strm << obj.getID() << ". " << obj.getName() << ", " << obj.getBrand() << " | $" << obj.getPrice() << endl;

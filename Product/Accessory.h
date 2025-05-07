@@ -19,7 +19,7 @@ class Accessory : public Product {
         string getType() const { return type; }
         bool getWireless() const { return wireless; }
         int getAccessoryCount() const { return accessoryCount; }
-        virtual void showInfo(bool);
+        void showInfo();
         // friend ostream &operator << (ostream &, Accessory &);
         // friend istream &operator >> (istream &, Accessory &);
 };

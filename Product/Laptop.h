@@ -25,7 +25,7 @@ class Laptop : public Product {
         int getStorage() const { return storage; }
         string getGPU() const { return gpu; }
         int getLaptopCount() const { return laptopCount; }
-        virtual void showInfo(bool);
+        void showInfo();
         // friend ostream &operator << (ostream &, Laptop &);
         // friend istream &operator >> (istream &, Laptop &);
 };
