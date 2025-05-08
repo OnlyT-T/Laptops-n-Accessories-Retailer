@@ -1,19 +1,19 @@
 #include "Accessory.h"
 
 // Static variable
-int Accessory::accessoryCount = 0;
+// int Accessory::accessoryCount = 0;
 
 Accessory::Accessory() : Product() {
-    this->id = 1100 + accessoryCount; // Accessory ID must start with 11 (11***)
-    this->type = "";
-    this->wireless = false;
-    accessoryCount++;
+    // this->id = id; // Accessory ID must start with 11 (11***)
+    // this->type = "";
+    // this->wireless = false;
+    // accessoryCount++;
 }
-Accessory::Accessory(string name, string brand, float price, string type, bool wireless) : Product(name, brand, price) {
-    this->id = 1100 + accessoryCount;
+Accessory::Accessory(int id,string name, string brand, float price, string type, bool wireless) : Product(id,name, brand, price) {
+    this->id = id;
     this->type = type;
     this->wireless = wireless;
-    accessoryCount++;
+    // accessoryCount++;
 }
 void Accessory::showInfo() {
         cout << "---< Accessory Information >---" << endl;

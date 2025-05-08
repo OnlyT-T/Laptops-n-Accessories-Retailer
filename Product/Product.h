@@ -5,15 +5,14 @@ using namespace std;
 
 class Product {
     protected:
-        static int productCount;
+        // static int productCount;
         string name;
         string brand;
         float price;
-    protected:
         int id;
     public:
         Product();
-        Product(string, string, float);
+        Product(int,string, string, float);
         void setID(int id) { this->id = id; }
         void setName(string name) { this->name = name; }
         void setBrand(string brand) { this->brand = brand; }
@@ -22,7 +21,7 @@ class Product {
         string getName() const { return name; }
         string getBrand() const { return brand; }
         float getPrice() const { return price; }
-        int getProductCount() const { return productCount; }
+        // int getProductCount() const { return productCount; }
         virtual void showInfo()=0;
         void listDisplay();
 };

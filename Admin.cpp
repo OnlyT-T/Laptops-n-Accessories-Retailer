@@ -27,7 +27,7 @@ void Admin::adminPanel(Inventory* inventory) {
         int choice = input[0] - '0';
         switch (choice) {
             case 1: checkInventory(inventory); break;
-            // case 2: searchProduct(inventory); break;
+            case 2: searchProduct(inventory); break;
             case 3: addProduct(inventory); break;
             case 4: removeProduct(inventory); break;
             case 5:  cout << "Logged Out Successfully!\n";
@@ -82,6 +82,7 @@ void Admin::addProduct(Inventory* inv) {
             string name, brand, cpu, gpu;
             float price;
             int ram, storage;
+            int id=inv->count()+1;
 
             cout << "Name: "; getline(cin, name);
             cout << "Brand: "; getline(cin, brand);
@@ -102,13 +103,14 @@ void Admin::addProduct(Inventory* inv) {
             } while (storage < 0);
 
             cout << "GPU Info: "; cin.ignore(); getline(cin, gpu);
-
-            inv->addProduct(new Laptop(name, brand, price, cpu, ram, storage, gpu));
+            
+            inv->addProduct(new Laptop(id,name, brand, price, cpu, ram, storage, gpu));
             cout << "-> Laptop added successfully!\n\n";
         } else if (choice == 2) {
             string name, brand, type;
             float price;
             bool wireless;
+            int id=inv->count()+1;
 
             cout << "Name: "; getline(cin, name);
             cout << "Brand: "; getline(cin, brand);
@@ -128,7 +130,7 @@ void Admin::addProduct(Inventory* inv) {
                 else cout << "Invalid choice.\n";
             } while (option != 0 && option != 1);
 
-            inv->addProduct(new Accessory(name, brand, price, type, wireless));
+            inv->addProduct(new Accessory(id,name, brand, price, type, wireless));
             cout << "-> Accessory added successfully!\n\n";
         } else if (choice == 3) {
             break;

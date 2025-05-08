@@ -17,6 +17,9 @@ class Inventory {
         void listProduct();
         void search(int);
         Product* getProductById(int);
+        int count(){
+            return products.size();
+        }
 };
 
 #endif

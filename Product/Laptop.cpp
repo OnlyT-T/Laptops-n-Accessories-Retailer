@@ -1,23 +1,23 @@
 #include "Laptop.h"
 
 // Static variable
-int Laptop::laptopCount = 0;
+// int Laptop::laptopCount = 0;
 
 Laptop::Laptop() : Product() {
-    this->id = 1000 + laptopCount; // Laptop ID must start with 10 (10***)
+    this->id = id; // Laptop ID must start with 10 (10***)
     this->cpu = "";
     this->ram = 0;
     this->storage = 0;
     this->gpu = "";
-    laptopCount++;
+    // laptopCount++;
 }
-Laptop::Laptop(string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(name, brand, price) {
-    this->id = 1000 + laptopCount;
+Laptop::Laptop(int id,string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(id,name, brand, price) {
+    this->id = id;
     this->cpu = cpu;
     this->ram = ram;
     this->storage = storage;
     this->gpu = gpu;
-    laptopCount++;
+    // laptopCount++;
 }
 void Laptop::showInfo() {
         cout << "---< Laptop Information >---" << endl;

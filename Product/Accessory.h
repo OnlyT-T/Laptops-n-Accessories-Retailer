@@ -8,17 +8,17 @@
 
 class Accessory : public Product {
     private:
-        static int accessoryCount;
+        // static int accessoryCount;
         string type;
         bool wireless;
     public:
         Accessory();
-        Accessory(string, string, float, string, bool);
+        Accessory(int,string, string, float, string, bool);
         void setType(string type) { this->type = type; }
         void setWireless(bool wireless) { this->wireless = wireless; }
         string getType() const { return type; }
         bool getWireless() const { return wireless; }
-        int getAccessoryCount() const { return accessoryCount; }
+        // int getAccessoryCount() const { return accessoryCount; }
         void showInfo();
         // friend ostream &operator << (ostream &, Accessory &);
         // friend istream &operator >> (istream &, Accessory &);
