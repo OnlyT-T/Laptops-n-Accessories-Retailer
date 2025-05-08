@@ -46,7 +46,7 @@ void Admin::checkInventory(Inventory* inv) {
 
 void Admin::searchProduct(Inventory* inv) {
     cout << "-------------------------< Search >------------------------\n";
-    int id;
+    int id=0;
     cout << " *  Enter the product's ID: ";
     cin >> id;
     cin.ignore();
@@ -82,7 +82,7 @@ void Admin::addProduct(Inventory* inv) {
             string name, brand, cpu, gpu;
             float price;
             int ram, storage;
-            int id=inv->count()+1;
+            int id;
 
             cout << "Name: "; getline(cin, name);
             cout << "Brand: "; getline(cin, brand);
@@ -110,7 +110,7 @@ void Admin::addProduct(Inventory* inv) {
             string name, brand, type;
             float price;
             bool wireless;
-            int id=inv->count()+1;
+            int id=0;
 
             cout << "Name: "; getline(cin, name);
             cout << "Brand: "; getline(cin, brand);

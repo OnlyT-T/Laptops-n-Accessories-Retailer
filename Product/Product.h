@@ -5,7 +5,7 @@ using namespace std;
 
 class Product {
     protected:
-        // static int productCount;
+        static int productCount;
         string name;
         string brand;
         float price;

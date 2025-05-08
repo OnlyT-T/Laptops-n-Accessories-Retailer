@@ -12,11 +12,12 @@ Laptop::Laptop() : Product() {
     // laptopCount++;
 }
 Laptop::Laptop(int id,string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(id,name, brand, price) {
-    this->id = id;
+    this->id = productCount+1;
     this->cpu = cpu;
     this->ram = ram;
     this->storage = storage;
     this->gpu = gpu;
+    productCount++;
     // laptopCount++;
 }
 void Laptop::showInfo() {

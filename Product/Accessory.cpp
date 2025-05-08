@@ -10,9 +10,10 @@ Accessory::Accessory() : Product() {
     // accessoryCount++;
 }
 Accessory::Accessory(int id,string name, string brand, float price, string type, bool wireless) : Product(id,name, brand, price) {
-    this->id = id;
+    this->id = productCount+1;
     this->type = type;
     this->wireless = wireless;
+    productCount++;
     // accessoryCount++;
 }
 void Accessory::showInfo() {
