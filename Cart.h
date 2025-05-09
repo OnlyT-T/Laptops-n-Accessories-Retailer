@@ -11,4 +11,5 @@ class Cart
     void removeItem(int);
     void showCart();
     void checkout();
+    int count();
 };

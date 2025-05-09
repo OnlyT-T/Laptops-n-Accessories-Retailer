@@ -143,6 +143,8 @@ void Admin::addProduct(Inventory* inv) {
 
 void Admin::removeProduct(Inventory* inv) {
     cout << "-------------------------< Remove >------------------------\n";
+    inv->listProduct();
+    if(inv->count()!=0){
     int input;
     cout << " * Enter the product's ID: ";
     cin >> input;
@@ -151,6 +153,7 @@ void Admin::removeProduct(Inventory* inv) {
         cout << "-> Removed product with ID " << input << " successfully!\n";
     } else {
         cout << "-> No product with ID " << input << " found.\n";
+    }
     }
 }
 

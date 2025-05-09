@@ -31,3 +31,6 @@ void Cart::checkout(){
     cout << " Checkout complete! Thank you for your purchase.\n";
     cartItems.clear();
 }
+int Cart::count(){
+    return cartItems.size();
+}
