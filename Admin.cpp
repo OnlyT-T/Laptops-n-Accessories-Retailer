@@ -47,6 +47,7 @@ void Admin::checkInventory(Inventory* inv) {
 void Admin::searchProduct(Inventory* inv) {
     cout << "-------------------------< Search >------------------------\n";
     int id=0;
+    inv->listProduct();
     cout << " *  Enter the product's ID: ";
     cin >> id;
     cin.ignore();
@@ -93,7 +94,7 @@ void Admin::addProduct(Inventory* inv) {
 
             cout << "CPU Info: "; cin.ignore(); getline(cin, cpu);
             do {
-                cout << "RAM (GB): "; cin >> ram;
+                cout << "RAM (GB): "; cin >>ram;
                 if (ram < 0) cout << "ERROR: Enter a positive value.\n";
             } while (ram < 0);
 

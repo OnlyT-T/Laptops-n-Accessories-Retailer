@@ -4,11 +4,11 @@
 // int Laptop::laptopCount = 0;
 
 Laptop::Laptop() : Product() {
-    this->id = id; // Laptop ID must start with 10 (10***)
-    this->cpu = "";
-    this->ram = 0;
-    this->storage = 0;
-    this->gpu = "";
+    // this->id = id; // Laptop ID must start with 10 (10***)
+    // this->cpu = "";
+    // this->ram = 0;
+    // this->storage = 0;
+    // this->gpu = "";
     // laptopCount++;
 }
 Laptop::Laptop(int id,string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(id,name, brand, price) {
