@@ -8,7 +8,7 @@ using namespace std;
 
 void Admin::adminPanel(Inventory* inventory) {
     while(true) {
-        cout << "-------------------------< Admin >-------------------------\n";
+        cout << "-----------------------< Admin >-------------------------\n";
         cout << " 1. Check Inventory\n";
         cout << " 2. Search Product (using product's ID)\n";
         cout << " 3. Add a new product\n";
@@ -23,7 +23,7 @@ void Admin::adminPanel(Inventory* inventory) {
             cout << "Invalid choice. Please enter a number from 1 to 5.\n\n";
             continue;
         }
-        cout << "\n-----------------------------------------------------------\n";
+        cout << "\n----------------------------------------------------------\n";
         int choice = input[0] - '0';
         switch (choice) {
             case 1: checkInventory(inventory); break;
@@ -64,7 +64,7 @@ void Admin::searchProduct(Inventory* inv) {
 
 void Admin::addProduct(Inventory* inv) {
     while (true) {
-        cout << "--------------------------< Add >--------------------------\n";
+        cout << "-------------------------< Add >--------------------------\n";
         cout << "Adding new product to the Inventory.\n";
         cout << " 1. Laptop\n";
         cout << " 2. Accessory\n";

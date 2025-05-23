@@ -54,7 +54,7 @@ void inputChoice(const int &choice) {
 }
 
 void adminLogin() {
-    cout << "-------------------------------------------------------\n";
+    cout << "---------------------------------------------------------\n";
     cout << "Admin login functionality goes here.\n";
     Admin admin;
 
@@ -62,14 +62,14 @@ void adminLogin() {
     // delete inventory;
 }
 void customerLogin() {
-    cout << "-------------------------------------------------------\n";
+    cout << "----------------------------------------------------------\n";
     cout << "Customer login functionality goes here.\n";
     User user;
 
     user.userMenu(inventory);
 }
 void exitProgram() {
-    cout << "-------------------------------------------------------\n";
+    cout << "----------------------------------------------------------\n";
     cout << "Exiting the program. Goodbye!\n";
     exit(0);
 }
