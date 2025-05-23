@@ -24,6 +24,8 @@ class Product {
         // int getProductCount() const { return productCount; }
         virtual void showInfo()=0;
         void listDisplay();
+        friend ostream& operator<<(ostream& , const Product&);
+
 };
 
 #endif

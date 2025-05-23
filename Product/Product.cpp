@@ -17,6 +17,12 @@ Product::Product(int id,string name, string brand, float price) {
     this->price = price;
 
 }
+ostream& operator<<(ostream& out, const Product& product) {
+    out << product.id << ". " << product.name << ", " << product.brand << " | $" << product.price;
+    return out;
+}
+
 void Product::listDisplay() {
-    cout << id << ". " << name << ", " << brand << " | $" << price << endl;
+    // cout << id << ". " << name << ", " << brand << " | $" << price << endl;
+    cout<<*this<<endl;
 }

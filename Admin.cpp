@@ -88,7 +88,7 @@ void Admin::addProduct(Inventory* inv) {
             cout << "Name: "; getline(cin, name);
             cout << "Brand: "; getline(cin, brand);
             do {
-                cout << "Price: $"; cin >> price;
+                cout << "Price: $"; cin >> price;cin.ignore();
                 if (price < 0) cout << "ERROR: Enter a positive value.\n";
             } while (price < 0);
 
