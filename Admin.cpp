@@ -4,7 +4,7 @@
 
 void Admin::adminPanel(Shop* shop) {
     while(true) {
-        cout << "-------------------------< Admin >--------------------------\n";
+        cout << "\n------------------------<< Admin >>-------------------------\n";
         cout << " 1. Check Shop\n";
         cout << " 2. Search Product (using product's ID)\n";
         cout << " 3. Add a new product\n";
@@ -16,54 +16,50 @@ void Admin::adminPanel(Shop* shop) {
         getline(cin, input);
 
         if (input.length() != 1) {
-            cout << "Invalid choice. Please enter a number from 1 to 5.\n\n";
+            cout << "-ERROR- Invalid choice. Please enter a number from 1 to 5.\n\n";
             continue;
         }
-        cout << string(60, '-') << endl;
+        cout << endl << string(60, '-') << endl;
         int choice = input[0] - '0';
         switch (choice) {
             case 1: checkShop(shop); break;
             case 2: searchProduct(shop); break;
             case 3: addProduct(shop); break;
             case 4: removeProduct(shop); break;
-            case 5:  cout << "Logged Out Successfully!\n";
-                        return;
-            default: cout << "Invalid choice. Please try again.\n";
+            case 5: cout << "  < Logged Out Successfully! >\n"; return;
+            default: cout << "-ERROR- Invalid choice. Please enter a number from 1 to 5.\n";
         }
+        cout << endl << string(60, '-') << endl;
     }
 }
 
 void Admin::checkShop(Shop* shop) {
-    cout << "-----------------------< Shop >------------------------\n";
+    cout << "\n-------------------------< Shop >---------------------------\n";
     cout << "List of products:\n";
     shop->listProduct();
 }
 
 void Admin::searchProduct(Shop* shop) {
-    cout << "------------------------< Search >--------------------------\n";
+    cout << "\n-------------------------< Search >-------------------------\n";
     int id = 0;
     shop->listProduct();
-    if(shop->count()!=0){
-    cout << " *  Enter the product's ID: ";
-    cin >> id;
-    cin.ignore();
-    Product* p= shop->getProductById(id);
-    if (p!=nullptr) {
-        cout << "--> Here's the product you're looking for:" << endl << endl;
-        p->showInfo();
+    if(shop->count() != 0) {
+        cout << " *  Enter the product's ID: ";
+        cin >> id;
+        cin.ignore();
+        Product* p= shop->getProductById(id);
+        if (p != nullptr) {
+            cout << "--> Here's the product you're looking for:" << endl << endl;
+            p->showInfo();
+        } else {
+            cout<< "--> Cannot found product!\n";
+        }
     }
-    else{
-        cout<< "--> Cannot found product!\n";
-    }
-    cout<<endl;
-    }
-    
-    
 }
 
 void Admin::addProduct(Shop* shop) {
     while (true) {
-        cout << "--------------------------< Add >---------------------------\n";
+        cout << "\n--------------------------< Add >---------------------------\n";
         cout << "Adding new product to the Shop.\n";
         cout << " 1. Laptop\n";
         cout << " 2. Accessory\n";
@@ -73,7 +69,7 @@ void Admin::addProduct(Shop* shop) {
         getline(cin, input);
 
         if (input.length() != 1) {
-            cout << "Invalid choice. Please try again.\n";
+            cout << "-ERROR- Invalid choice. Please try again.\n";
             continue;
         }
         int choice = input[0] - '0';
@@ -88,18 +84,18 @@ void Admin::addProduct(Shop* shop) {
             cout << "Brand: "; getline(cin, brand);
             do {
                 cout << "Price: $"; cin >> price;cin.ignore();
-                if (price < 0) cout << "ERROR: Enter a positive value.\n";
+                if (price < 0) cout << "-ERROR- Please enter a positive value.\n";
             } while (price < 0);
 
             cout << "CPU Info: "; cin.ignore(); getline(cin, cpu);
             do {
                 cout << "RAM (in GB): "; cin >>ram;
-                if (ram < 0) cout << "ERROR: Enter a positive value.\n";
+                if (ram < 0) cout << "-ERROR- Please enter a positive value.\n";
             } while (ram < 0);
 
             do {
                 cout << "Storage (in GB): "; cin >> storage;
-                if (storage < 0) cout << "ERROR: Enter a positive value.\n";
+                if (storage < 0) cout << "-ERROR- Please enter a positive value.\n";
             } while (storage < 0);
 
             cout << "GPU Info: "; cin.ignore(); getline(cin, gpu);
@@ -117,7 +113,7 @@ void Admin::addProduct(Shop* shop) {
             do {
                 cout << "Price: $"; cin >> price;
                 cin.ignore();
-                if (price < 0) cout << "ERROR: Enter a positive value.\n";
+                if (price < 0) cout << "-ERROR- Please enter a positive value.\n";
             } while (price < 0);
 
             cout << "Type: ";  getline(cin, type);
@@ -135,13 +131,13 @@ void Admin::addProduct(Shop* shop) {
         } else if (choice == 3) {
             break;
         } else {
-            cout << "Invalid choice. Please try again.\n";
+            cout << "-ERROR- Invalid choice. Please try again.\n";
         }
     }
 }
 
 void Admin::removeProduct(Shop* shop) {
-    cout << "-------------------------< Remove >-------------------------\n";
+    cout << "\n-------------------------< Remove >-------------------------\n";
     shop->listProduct();
     if(shop->count() != 0) {
         int input;
@@ -151,12 +147,7 @@ void Admin::removeProduct(Shop* shop) {
         if (shop->removeProduct(input)) {
             cout << "--> Removed product with ID " << input << " successfully!\n";
         } else {
-            cout << "--> No product with ID " << input << " found.\n";
+            cout << "--> No product with ID " << input << " found.";
         }
     }
-}
-
-void Admin::logOutAdmin() {
-    cout << "  Logged Out Successfully!\n";
-    return;
 }

@@ -1,6 +1,7 @@
 #include "Shop.h"
 #include "Admin.h"
-#include"User.h"
+#include "User.h"
+
 Shop* shop=new Shop();
 
 void inputChoice(int);
@@ -11,7 +12,7 @@ void exitProgram();
 int main() {
     // Infinite Loop
     while(true) {
-        cout << " ----------------------------------------------------------\n";
+        cout << "\n ----------------------------------------------------------\n";
         cout << "| Welcome to the 'Laptop & Accessories Retailer' Program.  |\n";
         cout << " ------------------------< Menu >--------------------------\n";
         cout << " 1. Login as Admin.\n";
@@ -25,17 +26,17 @@ int main() {
 
         // Validate input to ensure it's a single character
         if (input.length() != 1) {
-            cout << "Invalid choice. Please enter a number from 1 to 3.\n";
+            cout << "-ERROR- Invalid choice. Please enter a number from 1 to 3.\n";
             continue;
         }
         int choice = input[0] - '0';
         inputChoice(choice);
     }
-
     return 0;
 }
 
 void inputChoice(int choice) {
+    cout << endl << string(60, '-') << endl;
     switch (choice) {
         case 1: 
             adminLogin();
@@ -47,24 +48,20 @@ void inputChoice(int choice) {
             exitProgram();
             break;
         default:
-            cout << "Invalid choice. Please try again.\n";
+            cout << "-ERROR- Invalid choice. Please enter a number from 1 to 3.\n";
     }
 }
 
 void adminLogin() {
-    cout << string(60, '-') << endl << endl;
     Admin admin;
-
     admin.adminPanel(shop);
-    // delete Shop;
 }
 void customerLogin() {
-    cout << string(60, '-') << endl << endl;
     User user;
     user.userMenu(shop);
 }
 void exitProgram() {
-    cout << string(60, '-') << endl;
     cout << " < Exiting the program. Goodbye! >" << endl;
+    cout << string(60, '-') << endl;
     exit(0);
 }

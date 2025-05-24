@@ -9,7 +9,6 @@ class Admin {
         void searchProduct(Shop*);
         void addProduct(Shop*);
         void removeProduct(Shop*);
-        void logOutAdmin();
 };
 
 #endif

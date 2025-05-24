@@ -17,7 +17,8 @@ void Laptop::showInfo() {
     cout << "=" << left << setw(width-2) <<  ("   Brand: " + brand) << "=" << endl;
     stringstream ss;
     ss << fixed << setprecision(2) << price;
-    cout << "=" << left << setw(width-2) <<  ("   Price: $" + to_string(price)) << "=" << endl;
+    string strPrice = ss.str();
+    cout << "=" << left << setw(width-2) <<  ("   Price: $" + strPrice) << "=" << endl;
     cout << "=" << left << setw(width-2) <<  ("   CPU: " + cpu) << "=" << endl;
     cout << "=" << left << setw(width-2) << ("   RAM: " + to_string(ram) + "GB") << "=" << endl;
     cout << "=" << left << setw(width-2) << ("   Storage: " + to_string(storage) + "GB") << "=" << endl;

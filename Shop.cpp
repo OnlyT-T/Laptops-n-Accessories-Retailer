@@ -38,7 +38,6 @@ void Shop::listProduct() {
     for(auto p = products.begin(); p != products.end(); p++) {
         (*p)->listDisplay();
     }
-    cout << endl;
 }
 Product* Shop::getProductById(int id) {
     for (auto p : products) {
