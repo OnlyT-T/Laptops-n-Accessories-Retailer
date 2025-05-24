@@ -12,7 +12,7 @@
                 "Cart.cpp",
                 "User.cpp",
                 "Admin.cpp",
-                "Inventory.cpp",
+                "Shop.cpp",
                 "Product/Product.cpp",
                 "Product/Laptop.cpp",
                 "Product/Accessory.cpp",

@@ -1,17 +1,17 @@
-#ifndef INVENTORY_H
-#define INVENTORY_H
+#ifndef SHOP_H
+#define SHOP_H
 #include "Product/Product.h"
 #include "Product/Laptop.h"
 #include "Product/Accessory.h"
 #include <vector>
 
-class Inventory {
+class Shop {
     private:
         vector<Product*> products;
     public:
-        Inventory();
-        Inventory(vector <Product*>);
-        ~Inventory();
+        Shop();
+        Shop(vector <Product*>);
+        ~Shop();
         void addProduct(Product*);
         bool removeProduct(int);
         void listProduct();

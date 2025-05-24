@@ -1,14 +1,14 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
-#include "Inventory.h"
+#include "Shop.h"
 class Admin{
 public:
-void adminPanel(Inventory* inventory);
-void checkInventory(Inventory* inv);
-void searchProduct(Inventory* inv);
-void addProduct(Inventory* inv);
-void removeProduct(Inventory* inv);
+void adminPanel(Shop* shop);
+void checkShop(Shop* shop);
+void searchProduct(Shop* shop);
+void addProduct(Shop* shop);
+void removeProduct(Shop* shop);
 void logOutAdmin();
 };
 #endif

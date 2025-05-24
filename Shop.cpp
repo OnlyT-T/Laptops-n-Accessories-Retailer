@@ -1,15 +1,15 @@
-#include "Inventory.h"
+#include "Shop.h"
 
-Inventory::Inventory() {
+Shop::Shop() {
     // Product* laptop0 = new Laptop("None", "None", 0.0, "None", 0, 0, "None");
     // Product* accessory0 = new Accessory("None", "None", 0.0, "None", false);
     // this->products.push_back(laptop0);
     // this->products.push_back(accessory0);
 }
-Inventory::Inventory(vector<Product*> products) {
+Shop::Shop(vector<Product*> products) {
     this->products = products;
 }
-Inventory::~Inventory() {
+Shop::~Shop() {
     if (!products.empty()) {
         for (auto p : products) {
             delete p;
@@ -17,10 +17,10 @@ Inventory::~Inventory() {
         products.clear();
     }
 }
-void Inventory::addProduct(Product* p) {
+void Shop::addProduct(Product* p) {
     products.push_back(p);
 }
-bool Inventory::removeProduct(int id) {
+bool Shop::removeProduct(int id) {
     bool removed = false;
     for (auto p = products.begin(); p != products.end(); ++p) { // auto here is actually vector<Product*>::iterator
         if ((*p)->getId() == id) {
@@ -36,7 +36,7 @@ bool Inventory::removeProduct(int id) {
     }
     return removed;
 }
-void Inventory::listProduct() {
+void Shop::listProduct() {
     if(products.size() == 0){
         cout << "There is no available product!" << endl;
     }
@@ -45,7 +45,7 @@ void Inventory::listProduct() {
     }
     cout << endl;
 }
-Product* Inventory::getProductById(int id) {
+Product* Shop::getProductById(int id) {
     for (auto p : products) {
         if (p->getId() == id)
             return p;
@@ -53,7 +53,7 @@ Product* Inventory::getProductById(int id) {
     return nullptr;
 }
 ///hiii
-// void Inventory::search(int id) {
+// void Shop::search(int id) {
 //     bool found = false;
 //     for (auto p = products.begin(); p != products.end(); ++p) {
 //         if ((*p)->getId() == id) {

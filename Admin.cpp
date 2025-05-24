@@ -6,10 +6,10 @@
 
 using namespace std;
 
-void Admin::adminPanel(Inventory* inventory) {
+void Admin::adminPanel(Shop* shop) {
     while(true) {
         cout << "-------------------------< Admin >--------------------------\n";
-        cout << " 1. Check Inventory\n";
+        cout << " 1. Check Shop\n";
         cout << " 2. Search Product (using product's ID)\n";
         cout << " 3. Add a new product\n";
         cout << " 4. Remove an existing product\n";
@@ -26,10 +26,10 @@ void Admin::adminPanel(Inventory* inventory) {
         cout << string(60, '-') << endl;
         int choice = input[0] - '0';
         switch (choice) {
-            case 1: checkInventory(inventory); break;
-            case 2: searchProduct(inventory); break;
-            case 3: addProduct(inventory); break;
-            case 4: removeProduct(inventory); break;
+            case 1: checkShop(shop); break;
+            case 2: searchProduct(shop); break;
+            case 3: addProduct(shop); break;
+            case 4: removeProduct(shop); break;
             case 5:  cout << "Logged Out Successfully!\n";
                         return;
             default: cout << "Invalid choice. Please try again.\n";
@@ -37,21 +37,21 @@ void Admin::adminPanel(Inventory* inventory) {
     }
 }
 
-void Admin::checkInventory(Inventory* inv) {
-    cout << "-----------------------< Inventory >------------------------\n";
+void Admin::checkShop(Shop* shop) {
+    cout << "-----------------------< Shop >------------------------\n";
     cout << "List of products:\n";
-    inv->listProduct();
+    shop->listProduct();
 }
 
-void Admin::searchProduct(Inventory* inv) {
+void Admin::searchProduct(Shop* shop) {
     cout << "------------------------< Search >--------------------------\n";
     int id = 0;
-    inv->listProduct();
-    if(inv->count()!=0){
+    shop->listProduct();
+    if(shop->count()!=0){
     cout << " *  Enter the product's ID: ";
     cin >> id;
     cin.ignore();
-    Product* p= inv->getProductById(id);
+    Product* p= shop->getProductById(id);
     if (p!=nullptr) {
         cout << "--> Here's the product you're looking for:" << endl << endl;
         p->showInfo();
@@ -65,10 +65,10 @@ void Admin::searchProduct(Inventory* inv) {
     
 }
 
-void Admin::addProduct(Inventory* inv) {
+void Admin::addProduct(Shop* shop) {
     while (true) {
         cout << "--------------------------< Add >---------------------------\n";
-        cout << "Adding new product to the Inventory.\n";
+        cout << "Adding new product to the Shop.\n";
         cout << " 1. Laptop\n";
         cout << " 2. Accessory\n";
         cout << " 3. Back\n";
@@ -108,7 +108,7 @@ void Admin::addProduct(Inventory* inv) {
 
             cout << "GPU Info: "; cin.ignore(); getline(cin, gpu);
             
-            inv->addProduct(new Laptop(id,name, brand, price, cpu, ram, storage, gpu));
+            shop->addProduct(new Laptop(id,name, brand, price, cpu, ram, storage, gpu));
             cout << "--> Laptop added successfully!\n\n";
         } else if (choice == 2) {
             string name, brand, type;
@@ -134,7 +134,7 @@ void Admin::addProduct(Inventory* inv) {
                 else cout << "Invalid choice.\n";
             } while (option != 0 && option != 1);
 
-            inv->addProduct(new Accessory(id,name, brand, price, type, wireless));
+            shop->addProduct(new Accessory(id,name, brand, price, type, wireless));
             cout << "--> Accessory added successfully!\n\n";
         } else if (choice == 3) {
             break;
@@ -144,15 +144,15 @@ void Admin::addProduct(Inventory* inv) {
     }
 }
 
-void Admin::removeProduct(Inventory* inv) {
+void Admin::removeProduct(Shop* shop) {
     cout << "-------------------------< Remove >-------------------------\n";
-    inv->listProduct();
-    if(inv->count() != 0) {
+    shop->listProduct();
+    if(shop->count() != 0) {
         int input;
         cout << " *  Enter the product's ID: ";
         cin >> input;
         cin.ignore();
-        if (inv->removeProduct(input)) {
+        if (shop->removeProduct(input)) {
             cout << "--> Removed product with ID " << input << " successfully!\n";
         } else {
             cout << "--> No product with ID " << input << " found.\n";

@@ -1,6 +1,6 @@
 #include"User.h"
 
-void User::userMenu(Inventory* inv) {
+void User::userMenu(Shop* shop) {
     while (true) {
         cout << "--------------------------< User >--------------------------\n";
         cout << " 1. View Products\n"
@@ -21,16 +21,16 @@ void User::userMenu(Inventory* inv) {
 
         if (choice == 1) {
             cout << "--------------------------< Shop >--------------------------\n";   
-            inv->listProduct();
+            shop->listProduct();
         }
         else if (choice == 2) {
             cout << "-----------------------< Add To Cart >----------------------\n";
-            inv->listProduct();
-            if(cart.count()!=0){
+            shop->listProduct();
+            if(shop->count()!=0){
             int id;
             cout << "Enter Product ID to add to cart: ";
             cin >> id;
-            Product* p= inv->getProductById(id);
+            Product* p= shop->getProductById(id);
             if(p!=nullptr){
                 cart.addItem(p);
                 cout<<"--> Product added to cart successfully!\n";

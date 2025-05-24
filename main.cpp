@@ -1,9 +1,9 @@
-#include "Inventory.h"
+#include "Shop.h"
 #include "Admin.h"
 #include"User.h"
-Inventory* inventory= new Inventory();
+Shop* shop=new Shop();
 
-void inputChoice(const int &);
+void inputChoice(int);
 void adminLogin();
 void customerLogin();
 void exitProgram();
@@ -35,7 +35,7 @@ int main() {
     return 0;
 }
 
-void inputChoice(const int &choice) {
+void inputChoice(int choice) {
     switch (choice) {
         case 1: 
             adminLogin();
@@ -55,13 +55,13 @@ void adminLogin() {
     cout << string(60, '-') << endl << endl;
     Admin admin;
 
-    admin.adminPanel(inventory);
-    // delete inventory;
+    admin.adminPanel(shop);
+    // delete Shop;
 }
 void customerLogin() {
     cout << string(60, '-') << endl << endl;
     User user;
-    user.userMenu(inventory);
+    user.userMenu(shop);
 }
 void exitProgram() {
     cout << string(60, '-') << endl;
