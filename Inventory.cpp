@@ -43,6 +43,7 @@ void Inventory::listProduct() {
     for(auto p = products.begin(); p != products.end(); p++) {
         (*p)->listDisplay();
     }
+    cout << endl;
 }
 Product* Inventory::getProductById(int id) {
     for (auto p : products) {

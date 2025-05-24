@@ -23,7 +23,7 @@ void Admin::adminPanel(Inventory* inventory) {
             cout << "Invalid choice. Please enter a number from 1 to 5.\n\n";
             continue;
         }
-        cout << endl << string(60, '-') << endl;
+        cout << string(60, '-') << endl;
         int choice = input[0] - '0';
         switch (choice) {
             case 1: checkInventory(inventory); break;
@@ -41,7 +41,6 @@ void Admin::checkInventory(Inventory* inv) {
     cout << "-----------------------< Inventory >------------------------\n";
     cout << "List of products:\n";
     inv->listProduct();
-    cout << endl;
 }
 
 void Admin::searchProduct(Inventory* inv) {
@@ -57,7 +56,7 @@ void Admin::searchProduct(Inventory* inv) {
         p->showInfo();
     }
     else{
-        cout<<"--> Cannot found product!\n";
+        cout<< "--> Cannot found product!\n";
     }
     cout << endl;
 }
@@ -94,12 +93,12 @@ void Admin::addProduct(Inventory* inv) {
 
             cout << "CPU Info: "; cin.ignore(); getline(cin, cpu);
             do {
-                cout << "RAM (GB): "; cin >>ram;
+                cout << "RAM (in GB): "; cin >>ram;
                 if (ram < 0) cout << "ERROR: Enter a positive value.\n";
             } while (ram < 0);
 
             do {
-                cout << "Storage (GB): "; cin >> storage;
+                cout << "Storage (in GB): "; cin >> storage;
                 if (storage < 0) cout << "ERROR: Enter a positive value.\n";
             } while (storage < 0);
 
@@ -144,20 +143,20 @@ void Admin::addProduct(Inventory* inv) {
 void Admin::removeProduct(Inventory* inv) {
     cout << "-------------------------< Remove >-------------------------\n";
     inv->listProduct();
-    if(inv->count()!=0){
-    int input;
-    cout << " * Enter the product's ID: ";
-    cin >> input;
-    cin.ignore();
-    if (inv->removeProduct(input)) {
-        cout << "-> Removed product with ID " << input << " successfully!\n";
-    } else {
-        cout << "-> No product with ID " << input << " found.\n";
-    }
+    if(inv->count() != 0) {
+        int input;
+        cout << " *  Enter the product's ID: ";
+        cin >> input;
+        cin.ignore();
+        if (inv->removeProduct(input)) {
+            cout << "--> Removed product with ID " << input << " successfully!\n";
+        } else {
+            cout << "--> No product with ID " << input << " found.\n";
+        }
     }
 }
 
 void Admin::logOutAdmin() {
-    cout << "Logged Out Successfully!\n";
+    cout << "  Logged Out Successfully!\n";
     return;
 }

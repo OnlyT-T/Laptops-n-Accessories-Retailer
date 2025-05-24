@@ -15,9 +15,9 @@ class Inventory {
         void addProduct(Product*);
         bool removeProduct(int);
         void listProduct();
-        void search(int);
+        //void search(int);
         Product* getProductById(int);
-        int count(){
+        int count() const {
             return products.size();
         }
 };
