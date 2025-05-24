@@ -1,38 +1,27 @@
 #include "Laptop.h"
 
-// Static variable
-int Laptop::laptopCount = 0;
-
-Laptop::Laptop() : Product() {
-    this->id = 1000 + laptopCount; // Laptop ID must start with 10 (10***)
-    this->cpu = "";
-    this->ram = 0;
-    this->storage = 0;
-    this->gpu = "";
-    laptopCount++;
-}
-Laptop::Laptop(string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(name, brand, price) {
-    this->id = 1000 + laptopCount;
+Laptop::Laptop() : Product() {}
+Laptop::Laptop(int id,string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(id,name, brand, price) {
+    this->id = productCount+1;
     this->cpu = cpu;
     this->ram = ram;
     this->storage = storage;
     this->gpu = gpu;
-    laptopCount++;
+    productCount++;
 }
-void Laptop::showInfo(bool showDetail = false) {
-    Product::showInfo(showDetail);
-    if (showDetail) {
-        //cout << "---< Laptop Information >---" << endl;
-        cout << "CPU: " << cpu << endl;
-        cout << "RAM: " << ram << "GB" << endl;
-        cout << "Storage: " << storage << "GB" << endl;
-        cout << "GPU: " << gpu << endl;
-    }
+void Laptop::showInfo() {
+    const int width = 40;
+    cout << "---------< Laptop Information >---------" << endl;
+    cout << "=" << left << setw(width-2) <<  ("   ID: " + to_string(id)) << "=" << endl;
+    cout << "=" << left << setw(width-2) <<  ("   Name: " + name) << "=" << endl;
+    cout << "=" << left << setw(width-2) <<  ("   Brand: " + brand) << "=" << endl;
+    stringstream ss;
+    ss << fixed << setprecision(2) << price;
+    string strPrice = ss.str();
+    cout << "=" << left << setw(width-2) <<  ("   Price: $" + strPrice) << "=" << endl;
+    cout << "=" << left << setw(width-2) <<  ("   CPU: " + cpu) << "=" << endl;
+    cout << "=" << left << setw(width-2) << ("   RAM: " + to_string(ram) + "GB") << "=" << endl;
+    cout << "=" << left << setw(width-2) << ("   Storage: " + to_string(storage) + "GB") << "=" << endl;
+    cout << "=" << left << setw(width-2) <<  ("   GPU: " + gpu) << "=" << endl;
+    cout << string(width, '-') << endl;
 }
-// ostream &operator << (ostream &strm, const Laptop &obj) {
-//     strm << obj.getID() << ". " << obj.getName() << ", " << obj.getBrand() << " | $" << obj.getPrice() << endl;
-//     return strm;
-// }
-// istream &operator >> (istream &strm, const Laptop &obj) {
-//     return strm;
-// }

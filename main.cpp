@@ -1,16 +1,20 @@
-#include "Inventory.h"
+#include "Shop.h"
 #include "Admin.h"
+#include "User.h"
 
-void inputChoice(const int &, Inventory*);
+Shop* shop=new Shop();
+
+void inputChoice(int);
+void adminLogin();
 void customerLogin();
 void exitProgram();
 
 int main() {
-    Inventory* inventory = new Inventory();
+    // Infinite Loop
     while(true) {
-        cout << " ----------------------------------------------------------\n";
-        cout << "| Welcome to the 'Laptops & Accessories Retailer' Program. |\n";
-        cout << " -------------------------< Menu >-------------------------\n";
+        cout << "\n ----------------------------------------------------------\n";
+        cout << "| Welcome to the 'Laptop & Accessories Retailer' Program.  |\n";
+        cout << " ------------------------< Menu >--------------------------\n";
         cout << " 1. Login as Admin.\n";
         cout << " 2. Login as Customer.\n";
         cout << " 3. Exit Program.\n";
@@ -22,22 +26,20 @@ int main() {
 
         // Validate input to ensure it's a single character
         if (input.length() != 1) {
-            cout << "Invalid choice. Please enter a number from 1 to 3.\n";
+            cout << "-ERROR- Invalid choice. Please enter a number from 1 to 3.\n";
             continue;
         }
         int choice = input[0] - '0';
-        cout << "\n-----------------------------------------------------------\n";
-        inputChoice(choice, inventory);
+        inputChoice(choice);
     }
-
-    delete inventory;
     return 0;
 }
 
-void inputChoice(const int &choice, Inventory* inv) {
+void inputChoice(int choice) {
+    cout << endl << string(60, '-') << endl;
     switch (choice) {
         case 1: 
-            adminPanel(inv);
+            adminLogin();
             break;
         case 2:
             customerLogin();
@@ -46,14 +48,20 @@ void inputChoice(const int &choice, Inventory* inv) {
             exitProgram();
             break;
         default:
-            cout << "Invalid choice. Please try again.\n";
+            cout << "-ERROR- Invalid choice. Please enter a number from 1 to 3.\n";
     }
 }
 
+void adminLogin() {
+    Admin admin;
+    admin.adminPanel(shop);
+}
 void customerLogin() {
-    cout << "Customer login functionality goes here.\n";
+    User user;
+    user.userMenu(shop);
 }
 void exitProgram() {
-    cout << "Exiting the program. Goodbye!\n";
+    cout << " < Exiting the program. Goodbye! >" << endl;
+    cout << string(60, '-') << endl;
     exit(0);
 }
