@@ -8,7 +8,7 @@ using namespace std;
 
 void Admin::adminPanel(Inventory* inventory) {
     while(true) {
-        cout << "-----------------------< Admin >-------------------------\n";
+        cout << "-------------------------< Admin >--------------------------\n";
         cout << " 1. Check Inventory\n";
         cout << " 2. Search Product (using product's ID)\n";
         cout << " 3. Add a new product\n";
@@ -23,7 +23,7 @@ void Admin::adminPanel(Inventory* inventory) {
             cout << "Invalid choice. Please enter a number from 1 to 5.\n\n";
             continue;
         }
-        cout << "\n----------------------------------------------------------\n";
+        cout << endl << string(60, '-') << endl;
         int choice = input[0] - '0';
         switch (choice) {
             case 1: checkInventory(inventory); break;
@@ -38,22 +38,22 @@ void Admin::adminPanel(Inventory* inventory) {
 }
 
 void Admin::checkInventory(Inventory* inv) {
-    cout << "-----------------------< Inventory >-----------------------\n";
+    cout << "-----------------------< Inventory >------------------------\n";
     cout << "List of products:\n";
     inv->listProduct();
     cout << endl;
 }
 
 void Admin::searchProduct(Inventory* inv) {
-    cout << "-------------------------< Search >------------------------\n";
+    cout << "------------------------< Search >--------------------------\n";
     int id=0;
     inv->listProduct();
     cout << " *  Enter the product's ID: ";
     cin >> id;
     cin.ignore();
     Product* p= inv->getProductById(id);
-    if(p!=nullptr){
-        cout << "--> Here's the product you're looking for:" << endl;
+    if (p!=nullptr) {
+        cout << "--> Here's the product you're looking for:" << endl << endl;
         p->showInfo();
     }
     else{
@@ -64,7 +64,7 @@ void Admin::searchProduct(Inventory* inv) {
 
 void Admin::addProduct(Inventory* inv) {
     while (true) {
-        cout << "-------------------------< Add >--------------------------\n";
+        cout << "--------------------------< Add >---------------------------\n";
         cout << "Adding new product to the Inventory.\n";
         cout << " 1. Laptop\n";
         cout << " 2. Accessory\n";
@@ -111,7 +111,7 @@ void Admin::addProduct(Inventory* inv) {
             string name, brand, type;
             float price;
             bool wireless;
-            int id=0;
+            int id = 0;
 
             cout << "Name: "; getline(cin, name);
             cout << "Brand: "; getline(cin, brand);
@@ -142,7 +142,7 @@ void Admin::addProduct(Inventory* inv) {
 }
 
 void Admin::removeProduct(Inventory* inv) {
-    cout << "-------------------------< Remove >------------------------\n";
+    cout << "-------------------------< Remove >-------------------------\n";
     inv->listProduct();
     if(inv->count()!=0){
     int input;

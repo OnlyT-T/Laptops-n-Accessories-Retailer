@@ -1,4 +1,5 @@
-#include"cart.h"
+#include "Cart.h"
+
 void Cart::addItem(Product* p){
     cartItems.push_back(p);
 }

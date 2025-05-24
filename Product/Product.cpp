@@ -3,13 +3,7 @@
 // Static variable
 int Product::productCount = 0;
 
-Product::Product() {
-    // this->id = 0;
-    // this->name = "";
-    // this->brand = "";
-    // this->price = 0.0;
-    // productCount++;
-}
+Product::Product() {}
 Product::Product(int id,string name, string brand, float price) {
     this->id = productCount+1;
     this->name = name;
@@ -24,5 +18,5 @@ ostream& operator<<(ostream& out, const Product& product) {
 
 void Product::listDisplay() {
     // cout << id << ". " << name << ", " << brand << " | $" << price << endl;
-    cout<<*this<<endl;
+    cout << *this << endl;
 }

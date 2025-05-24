@@ -9,11 +9,11 @@ void customerLogin();
 void exitProgram();
 
 int main() {
-
+    // Infinite Loop
     while(true) {
-        cout << " ---------------------------------------------------------\n";
-        cout << "| Welcome to the 'Laptop & Accessories Retailer' Program. |\n";
-        cout << " ------------------------< Menu >-------------------------\n";
+        cout << " ----------------------------------------------------------\n";
+        cout << "| Welcome to the 'Laptop & Accessories Retailer' Program.  |\n";
+        cout << " ------------------------< Menu >--------------------------\n";
         cout << " 1. Login as Admin.\n";
         cout << " 2. Login as Customer.\n";
         cout << " 3. Exit Program.\n";
@@ -32,8 +32,6 @@ int main() {
         inputChoice(choice);
     }
 
-
-  
     return 0;
 }
 
@@ -54,22 +52,19 @@ void inputChoice(const int &choice) {
 }
 
 void adminLogin() {
-    cout << "---------------------------------------------------------\n";
-    cout << "Admin login functionality goes here.\n";
+    cout << string(60, '-') << endl << endl;
     Admin admin;
 
     admin.adminPanel(inventory);
     // delete inventory;
 }
 void customerLogin() {
-    cout << "----------------------------------------------------------\n";
-    cout << "Customer login functionality goes here.\n";
+    cout << string(60, '-') << endl << endl;
     User user;
-
     user.userMenu(inventory);
 }
 void exitProgram() {
-    cout << "----------------------------------------------------------\n";
-    cout << "Exiting the program. Goodbye!\n";
+    cout << string(60, '-') << endl;
+    cout << "  Exiting the program. Goodbye!" << endl;
     exit(0);
 }

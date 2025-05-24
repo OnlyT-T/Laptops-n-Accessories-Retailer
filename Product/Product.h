@@ -1,6 +1,8 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
+#include <iomanip>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 class Product {
@@ -25,7 +27,6 @@ class Product {
         virtual void showInfo()=0;
         void listDisplay();
         friend ostream& operator<<(ostream& , const Product&);
-
 };
 
 #endif
