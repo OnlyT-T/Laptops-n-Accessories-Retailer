@@ -17,7 +17,7 @@ int main() {
         cout << " 1. Login as Admin.\n";
         cout << " 2. Login as Customer.\n";
         cout << " 3. Exit Program.\n";
-        cout << " * Enter your choice: ";
+        cout << " *  Enter your choice: ";
 
         // Handling invalid input
         string input; // Define the variable named 'input' as string
