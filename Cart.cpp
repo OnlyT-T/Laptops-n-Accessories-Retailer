@@ -15,17 +15,20 @@ void Cart::removeItem(int id){
 }
 
 void Cart::showCart() {
-    cout << "\n Cart Items:\n";
+    cout << "\nCart Items:\n";
     float total = 0;
+    if(cartItems.size()==0){
+        cout<<"Cart is empty!\n";
+    }
     for ( auto item : cartItems) {
         item->listDisplay();
         total += item->getPrice();
     }
-    cout << " Total: $" << total << endl;
+    cout << "Total: $" << total << endl;
 }
 void Cart::checkout(){
     if (cartItems.empty()) {
-        cout << " Cart is empty.\n";
+        cout << " Cart is empty!\n";
         return;
     }
     showCart();

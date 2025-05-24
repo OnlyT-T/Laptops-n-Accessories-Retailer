@@ -47,6 +47,7 @@ void Admin::searchProduct(Inventory* inv) {
     cout << "------------------------< Search >--------------------------\n";
     int id = 0;
     inv->listProduct();
+    if(inv->count()!=0){
     cout << " *  Enter the product's ID: ";
     cin >> id;
     cin.ignore();
@@ -58,7 +59,10 @@ void Admin::searchProduct(Inventory* inv) {
     else{
         cout<< "--> Cannot found product!\n";
     }
-    cout << endl;
+    cout<<endl;
+    }
+    
+    
 }
 
 void Admin::addProduct(Inventory* inv) {
