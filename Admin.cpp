@@ -1,10 +1,6 @@
 #include "Admin.h"
 #include "Product/Laptop.h"
 #include "Product/Accessory.h"
-#include <iostream>
-#include <string>
-
-using namespace std;
 
 void Admin::adminPanel(Shop* shop) {
     while(true) {

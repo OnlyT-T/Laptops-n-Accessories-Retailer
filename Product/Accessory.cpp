@@ -1,8 +1,5 @@
 #include "Accessory.h"
 
-// Static variable
-// int Accessory::accessoryCount = 0;
-
 Accessory::Accessory() : Product() {}
 Accessory::Accessory(int id,string name, string brand, float price, string type, bool wireless) : Product(id,name, brand, price) {
     this->id = productCount+1;

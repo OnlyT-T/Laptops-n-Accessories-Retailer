@@ -3,7 +3,6 @@
 #include "Product/Product.h"
 #include "Product/Laptop.h"
 #include "Product/Accessory.h"
-#include <vector>
 
 class Shop {
     private:
@@ -15,11 +14,8 @@ class Shop {
         void addProduct(Product*);
         bool removeProduct(int);
         void listProduct();
-        //void search(int);
         Product* getProductById(int);
-        int count() const {
-            return products.size();
-        }
+        int count() const { return products.size(); }
 };
 
 #endif

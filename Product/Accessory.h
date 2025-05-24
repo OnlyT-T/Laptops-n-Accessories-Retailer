@@ -2,13 +2,8 @@
 #define ACCESSORY_H
 #include "Product.h"
 
-// class Accessory;
-// ostream &operator << (ostream &, Accessory &);
-// istream &operator >> (istream &, Accessory &);
-
 class Accessory : public Product {
     private:
-        // static int accessoryCount;
         string type;
         bool wireless;
     public:
@@ -18,10 +13,7 @@ class Accessory : public Product {
         void setWireless(bool wireless) { this->wireless = wireless; }
         string getType() const { return type; }
         bool getWireless() const { return wireless; }
-        // int getAccessoryCount() const { return accessoryCount; }
         void showInfo();
-        // friend ostream &operator << (ostream &, Accessory &);
-        // friend istream &operator >> (istream &, Accessory &);
 };
 
 #endif

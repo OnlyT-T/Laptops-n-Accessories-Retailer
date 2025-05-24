@@ -2,13 +2,8 @@
 #define LAPTOP_H
 #include "Product.h"
 
-// class Laptop;
-// ostream &operator << (ostream &, Laptop &);
-// istream &operator >> (istream &, Laptop &);
-
 class Laptop : public Product {
     private:
-        // static int laptopCount;
         string cpu;
         int ram;
         int storage;
@@ -24,10 +19,7 @@ class Laptop : public Product {
         int getRAM() const { return ram; }
         int getStorage() const { return storage; }
         string getGPU() const { return gpu; }
-        // int getLaptopCount() const { return laptopCount; }
         void showInfo();
-        // friend ostream &operator << (ostream &, Laptop &);
-        // friend istream &operator >> (istream &, Laptop &);
 };
 
 #endif

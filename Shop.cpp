@@ -1,11 +1,6 @@
 #include "Shop.h"
 
-Shop::Shop() {
-    // Product* laptop0 = new Laptop("None", "None", 0.0, "None", 0, 0, "None");
-    // Product* accessory0 = new Accessory("None", "None", 0.0, "None", false);
-    // this->products.push_back(laptop0);
-    // this->products.push_back(accessory0);
-}
+Shop::Shop() {}
 Shop::Shop(vector<Product*> products) {
     this->products = products;
 }
@@ -52,15 +47,3 @@ Product* Shop::getProductById(int id) {
     }
     return nullptr;
 }
-///hiii
-// void Shop::search(int id) {
-//     bool found = false;
-//     for (auto p = products.begin(); p != products.end(); ++p) {
-//         if ((*p)->getId() == id) {
-//             cout << "--> Here's the product you're looking for:" << endl;
-//             (*p)->showInfo(true);
-//             found = true;
-//         }
-//     }
-//     if (!found) cout << "--> Unable to find the product you're looking for. Please try again." << endl;
-// }

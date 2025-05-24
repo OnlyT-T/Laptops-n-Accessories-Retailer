@@ -1,4 +1,4 @@
-#include"User.h"
+#include "User.h"
 
 void User::userMenu(Shop* shop) {
     while (true) {

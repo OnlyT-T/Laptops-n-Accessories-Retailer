@@ -1,9 +1,10 @@
+#ifndef CART_H
+#define CART_H
 #include "Product/Product.h"
 #include "Product/Laptop.h"
 #include "Product/Accessory.h"
-#include <vector>
-class Cart
-{
+
+class Cart {
     private:
     vector<Product*>cartItems;
     public:
@@ -13,3 +14,5 @@ class Cart
     void checkout();
     int count();
 };
+
+#endif

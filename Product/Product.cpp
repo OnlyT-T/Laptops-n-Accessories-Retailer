@@ -17,6 +17,5 @@ ostream& operator<<(ostream& out, const Product& product) {
 }
 
 void Product::listDisplay() {
-    // cout << id << ". " << name << ", " << brand << " | $" << price << endl;
     cout << *this << endl;
 }

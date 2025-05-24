@@ -1,6 +1,5 @@
 #include "Laptop.h"
 
-
 Laptop::Laptop() : Product() {}
 Laptop::Laptop(int id,string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(id,name, brand, price) {
     this->id = productCount+1;
