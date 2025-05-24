@@ -26,7 +26,7 @@ void User::userMenu(Inventory* inv) {
         else if (choice == 2) {
             cout << "-----------------------< Add To Cart >----------------------\n";
             inv->listProduct();
-            if(cart.count()!=0){
+            if(inv->count()!=0){
             int id;
             cout << "Enter Product ID to add to cart: ";
             cin >> id;
