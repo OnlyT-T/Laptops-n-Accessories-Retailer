@@ -65,6 +65,6 @@ void customerLogin() {
 }
 void exitProgram() {
     cout << string(60, '-') << endl;
-    cout << "  Exiting the program. Goodbye!" << endl;
+    cout << " < Exiting the program. Goodbye! >" << endl;
     exit(0);
 }

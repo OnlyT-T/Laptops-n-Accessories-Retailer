@@ -37,10 +37,10 @@ bool Inventory::removeProduct(int id) {
     return removed;
 }
 void Inventory::listProduct() {
-    if(products.size()==0){
-        cout<<"There is no available product!\n";
+    if(products.size() == 0){
+        cout << "There is no available product!" << endl;
     }
-    for (auto p = products.begin(); p != products.end(); p++) {
+    for(auto p = products.begin(); p != products.end(); p++) {
         (*p)->listDisplay();
     }
 }

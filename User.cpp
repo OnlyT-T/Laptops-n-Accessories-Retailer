@@ -1,7 +1,6 @@
 #include"User.h"
 
 void User::userMenu(Inventory* inv) {
-    int choice;
     while (true) {
         cout << "--------------------------< User >--------------------------\n";
         cout << " 1. View Products\n"
@@ -11,7 +10,15 @@ void User::userMenu(Inventory* inv) {
              << " 5. Checkout\n"
              << " 6. Logout\n"
              << " * Enter your choice: ";
-        cin >> choice;
+        string input;
+        getline(cin, input);
+        
+        if (input.length() != 1) {
+            cout << "Invalid choice. Please enter a number from 1 to 6.\n";
+            continue;
+        }
+        int choice = input[0] - '0';
+
         if (choice == 1) {
             cout << "--------------------------< Shop >--------------------------\n";   
             inv->listProduct();
@@ -30,7 +37,6 @@ void User::userMenu(Inventory* inv) {
             else {
                 cout<<"--> Cannot found product !\n";
             }
-
         }
         else if(choice==3){
         cout << "----------------------< Remove Item >-----------------------\n";
@@ -45,8 +51,7 @@ void User::userMenu(Inventory* inv) {
             else{cout<<"There is no avalable item to remove!\n";}
         }
         else if (choice == 4) {
-        cout << "--------------------------< Cart >--------------------------\n";   
-        
+            cout << "--------------------------< Cart >--------------------------\n";   
             cart.showCart();
         }
         else if (choice == 5) {
@@ -57,6 +62,9 @@ void User::userMenu(Inventory* inv) {
         else if (choice == 6) {
             cout << "Logged Out Successfully!\n";
             break;
+        }
+        else {
+            cout << "Invalid choice. Please try again.\n";
         }
     }
 }

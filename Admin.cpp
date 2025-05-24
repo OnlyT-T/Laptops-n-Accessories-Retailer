@@ -46,7 +46,7 @@ void Admin::checkInventory(Inventory* inv) {
 
 void Admin::searchProduct(Inventory* inv) {
     cout << "------------------------< Search >--------------------------\n";
-    int id=0;
+    int id = 0;
     inv->listProduct();
     cout << " *  Enter the product's ID: ";
     cin >> id;
@@ -106,7 +106,7 @@ void Admin::addProduct(Inventory* inv) {
             cout << "GPU Info: "; cin.ignore(); getline(cin, gpu);
             
             inv->addProduct(new Laptop(id,name, brand, price, cpu, ram, storage, gpu));
-            cout << "-> Laptop added successfully!\n\n";
+            cout << "--> Laptop added successfully!\n\n";
         } else if (choice == 2) {
             string name, brand, type;
             float price;
@@ -132,7 +132,7 @@ void Admin::addProduct(Inventory* inv) {
             } while (option != 0 && option != 1);
 
             inv->addProduct(new Accessory(id,name, brand, price, type, wireless));
-            cout << "-> Accessory added successfully!\n\n";
+            cout << "--> Accessory added successfully!\n\n";
         } else if (choice == 3) {
             break;
         } else {
