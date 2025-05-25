@@ -8,7 +8,8 @@ class Accessory : public Product {
         bool wireless;
     public:
         Accessory();
-        Accessory(int,string, string, float, string, bool);
+        Accessory(int, string, string, float, string, bool);
+        ~Accessory();
         void setType(string type) { this->type = type; }
         void setWireless(bool wireless) { this->wireless = wireless; }
         string getType() const { return type; }

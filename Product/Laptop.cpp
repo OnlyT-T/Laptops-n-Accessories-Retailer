@@ -1,14 +1,13 @@
 #include "Laptop.h"
 
 Laptop::Laptop() : Product() {}
-Laptop::Laptop(int id,string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(id,name, brand, price) {
-    this->id = productCount+1;
+Laptop::Laptop(int id, string name, string brand, float price, string cpu, int ram, int storage, string gpu) : Product(id, name, brand, price) {
     this->cpu = cpu;
     this->ram = ram;
     this->storage = storage;
     this->gpu = gpu;
-    productCount++;
 }
+Laptop::~Laptop() {}
 void Laptop::showInfo() {
     const int width = 40;
     cout << "---------< Laptop Information >---------" << endl;

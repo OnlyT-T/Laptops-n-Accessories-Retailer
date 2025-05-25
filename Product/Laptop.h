@@ -10,7 +10,8 @@ class Laptop : public Product {
         string gpu;
     public:
         Laptop();
-        Laptop(int,string, string, float, string, int, int, string);
+        Laptop(int, string, string, float, string, int, int, string);
+        ~Laptop();
         void setCPU(string cpu) { this->cpu = cpu; }
         void setRAM(int ram) { this->ram = ram; }
         void setStorage(int storage) { this->storage = storage; }

@@ -1,12 +1,11 @@
 #include "Accessory.h"
 
 Accessory::Accessory() : Product() {}
-Accessory::Accessory(int id,string name, string brand, float price, string type, bool wireless) : Product(id,name, brand, price) {
-    this->id = productCount+1;
+Accessory::Accessory(int id, string name, string brand, float price, string type, bool wireless) : Product(id, name, brand, price) {
     this->type = type;
     this->wireless = wireless;
-    productCount++;
 }
+Accessory::~Accessory() {}
 void Accessory::showInfo() {
     const int width = 40;
     cout << "--------< Accessory Information >-------" << endl;
