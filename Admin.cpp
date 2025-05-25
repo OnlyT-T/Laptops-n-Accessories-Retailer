@@ -83,11 +83,11 @@ void Admin::addProduct(Shop* shop) {
             cout << "Name: "; getline(cin, name);
             cout << "Brand: "; getline(cin, brand);
             do {
-                cout << "Price: $"; cin >> price;cin.ignore();
+                cout << "Price: $"; cin >> price; cin.ignore();
                 if (price < 0) cout << "-ERROR- Please enter a positive value.\n";
             } while (price < 0);
 
-            cout << "CPU Info: "; cin.ignore(); getline(cin, cpu);
+            cout << "CPU Info: "; getline(cin, cpu);
             do {
                 cout << "RAM (in GB): "; cin >>ram;
                 if (ram < 0) cout << "-ERROR- Please enter a positive value.\n";

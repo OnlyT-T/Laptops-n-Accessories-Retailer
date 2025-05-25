@@ -37,7 +37,7 @@ void Cart::showCart() {
         total += item->getPrice();
     }
     stringstream ss;
-    ss << fixed << setprecision(2) << total;
+    ss << fixed << setprecision(1) << total;
     string strTotal = "| Total: $" + ss.str() + " |";
     cout << setw(3) << "" << string(strTotal.length()-2, '-') << endl;
     cout << setw(2) << "" << strTotal << endl;
