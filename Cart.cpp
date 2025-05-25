@@ -1,5 +1,17 @@
 #include "Cart.h"
 
+Cart::Cart() {}
+Cart::Cart(vector<Product*> cartItems) {
+    this->cartItems = cartItems;
+}
+Cart::~Cart() {
+    if (!cartItems.empty()) {
+        for (auto i : cartItems) {
+            delete i;
+        }
+        cartItems.clear();
+    }
+}
 void Cart::addItem(Product* p){
     cartItems.push_back(p);
 }

@@ -6,13 +6,16 @@
 
 class Cart {
     private:
-    vector<Product*>cartItems;
+        vector<Product*>cartItems;
     public:
-    void addItem(Product*);
-    void removeItem(int);
-    void showCart();
-    void checkout();
-    int count();
+        Cart();
+        Cart(vector<Product*>);
+        ~Cart();
+        void addItem(Product*);
+        void removeItem(int);
+        void showCart();
+        void checkout();
+        int count();
 };
 
 #endif
