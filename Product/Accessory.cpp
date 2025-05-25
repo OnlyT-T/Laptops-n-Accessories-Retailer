@@ -14,9 +14,9 @@ void Accessory::showInfo() {
     cout << "=" << left << setw(width-2) <<  ("   Name: " + name) << "=" << endl;
     cout << "=" << left << setw(width-2) <<  ("   Brand: " + brand) << "=" << endl;
     stringstream ss;
-    ss << fixed << setprecision(2) << price;
+    ss << fixed << setprecision(1) << price;
     string strPrice = ss.str();
-    cout << "=" << left << setw(width-2) <<  ("   Price: $" + to_string(price)) << "=" << endl;
+    cout << "=" << left << setw(width-2) <<  ("   Price: $" + strPrice) << "=" << endl;
     cout << "=" << left << setw(width-2) <<  ("   Type: " + type) << "=" << endl;
     cout << "=" << left << setw(width-2) << ("   Wireless: " + string(wireless ? "Yes" : "No")) << "=" << endl;
     cout << string(width, '-') << endl;
