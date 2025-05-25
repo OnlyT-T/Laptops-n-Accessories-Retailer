@@ -37,7 +37,8 @@ void User::userMenu(Shop* shop) {
             if(shop->count()!=0){
                 int id;
                 cout << "Enter Product ID to add to cart: ";
-                cin >> id; cin.ignore();
+                cin >> id; 
+                cin.ignore();
                 Product* p= shop->getProductById(id);
                 if(p!=nullptr){
                     cart.addItem(p);
