@@ -17,13 +17,31 @@ void User::userMenu(Shop* shop) {
             cout << "-ERROR- Invalid choice. Please enter a number from 1 to 6.\n";
             continue;
         }
-
         cout << endl;
         int choice = input[0] - '0';
         if (choice == 1) {
             cout << string(60, '-') << endl;
             cout << "\n--------------------------< Shop >--------------------------\n";   
             shop->listProduct();
+            if(shop->count()) {
+                cout << string(45, '-') << endl;
+                cout << "Which product do you want to look at (enter its ID, 0 to cancel action)? ";
+                int input;
+                cin >> input; cin.ignore();
+                if(input == 0) {
+                    continue;
+                } else {
+                    Product* p = shop->getProductById(input);
+                    if (p != nullptr) {
+                        cout << "--> Here's the detailed information of the product you're looking for:" << endl << endl;
+                        p->showInfo();
+                    } else {
+                        cout<< "--> Cannot found product!\n";
+                    }
+                }
+            } else {
+                continue;
+            }
         }
         else if (choice == 2) {
             cout << string(60, '-') << endl;
@@ -37,8 +55,7 @@ void User::userMenu(Shop* shop) {
             if(shop->count()!=0){
                 int id;
                 cout << "Enter Product ID to add to cart: ";
-                cin >> id; 
-                cin.ignore();
+                cin >> id;cin.ignore();
                 Product* p= shop->getProductById(id);
                 if(p!=nullptr){
                     cart.addItem(p);
